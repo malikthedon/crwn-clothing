@@ -1,48 +1,32 @@
-
-import Category from "./components/category/category";
+import  {Routes, Route} from 'react-router-dom';
+import { Home } from "./routes/home/home";
+import { Navbar } from './routes/navigation/navbar';
+import { SignIn } from './routes/sign-in/sign-in';
 
 
 const App = () =>  {
   
-  //this array is created to go over each category section of the web app
-  //you have to destructure this and loop through it to name each category
-  //this will eventually become clickable sections that sends you to the specific area like hats
-  //one of the main advatages of react is it becomes simple to write and your data
-  //becomes your UI
-  const categories = [
-    {
-      "id": 1,
-      "title": "hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      "id": 2,
-      "title": "jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      "id": 3,
-      "title": "sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      "id": 4,
-      "title": "womens",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      "id": 5,
-      "title": "mens",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ]
-  ;
-
-  //typically when you are mapping over data to make them elements, the elements become its own component
-  //so for css specifically this is why you style it outside of the parent component
+  //the app component aka the main component returns the routes of the app
+  //using the Routes component and inside the Routes component, theres the Route for each page
+  //each route needs to be linked to a path and to an element. 
+  //the path is the url that would be called, and element is the component that the url leads to
+  //think of components as pages cause thats what they technically are at times
+  //nesting routes inside of a route is a good way to have them on the page simultaneously,
+  //like for example a navbar, nesting routes inside of a navbar route is the best thing to do 
+  //because it will allow the navbar to be shown at all times
+  //this react stuff really easy man
+  //but also if you nest routes inside of a route you have to use <Outlet/>
+  //and make sure you place is at the top or bottom depending on where you want it to render on screen
+  //and using index also displays the component 
 
   return (
-    <Category categories={categories}/>
+    <Routes>
+      <Route path='/' element={<Navbar />}>
+      <Route index element={<Home />}/>
+      <Route path='SignIn' element={<SignIn />}/>
+      </Route>
+    </Routes>
+    
       
   );
 }

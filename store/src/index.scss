@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/*to make sure the components sizing doesnt get thrown off */
+*{
+  box-sizing: border-box;
+
+}
